@@ -17,14 +17,22 @@ function toggleCandles() {
 
         // Wait for the flame animation, then show the letter
         setTimeout(() => {
-            messageScreen.classList.add("show");
+    messageScreen.classList.add("show");
 
-            // Restart the scrolling animation
-            scrollingMessage.style.animation = "none";
-            void scrollingMessage.offsetHeight;
-            scrollingMessage.style.animation = "";
+    // Restart the scrolling animation
+    scrollingMessage.style.animation = "none";
+    void scrollingMessage.offsetHeight;
+    scrollingMessage.style.animation = "";
 
-        }, 600);
+    // Play romantic background music
+    const music = document.getElementById("birthdayMusic");
+
+    music.volume = 0.5; // 50% volume
+
+    music.play().catch(error => {
+        console.log("Music playback needs user interaction.", error);
+    });
+
+}, 600);
     }
-}
 
