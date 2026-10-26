@@ -1,0 +1,146 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Segoe UI", sans-serif;
+    background: linear-gradient(135deg, #ffe0ec, #ffc1d6, #fff0f5);
+    overflow: hidden;
+}
+
+.gift-container {
+    text-align: center;
+    padding: 25px;
+}
+
+h1 {
+    color: #d63384;
+    font-size: 2rem;
+    margin-bottom: 12px;
+}
+
+.gift-container p {
+    color: #a52a5a;
+    font-size: 1.1rem;
+}
+
+.gift-button {
+    display: inline-block;
+    margin: 65px 0 45px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.gift {
+    position: relative;
+    width: 160px;
+    height: 145px;
+    transition: transform 0.3s ease;
+}
+
+.gift-button:hover .gift {
+    transform: scale(1.08);
+}
+
+.gift-box {
+    position: absolute;
+    bottom: 0;
+    width: 160px;
+    height: 105px;
+    background: #ff4f81;
+    border-radius: 5px;
+    box-shadow: 0 12px 20px #d6338440;
+}
+
+.gift-ribbon {
+    position: absolute;
+    left: 65px;
+    width: 30px;
+    height: 100%;
+    background: #ffd166;
+}
+
+.gift-lid {
+    position: absolute;
+    top: 32px;
+    left: -8px;
+    width: 176px;
+    height: 30px;
+    background: #e91e63;
+    border-radius: 6px;
+    z-index: 2;
+    transition: transform 0.7s ease;
+}
+
+.gift-bow {
+    position: absolute;
+    top: 0;
+    left: 57px;
+    width: 46px;
+    height: 28px;
+    border: 9px solid #ffd166;
+    border-radius: 50% 50% 0 50%;
+    transform: rotate(-25deg);
+    z-index: 3;
+    transition: transform 0.7s ease;
+}
+
+.gift-bow::after {
+    content: "";
+    position: absolute;
+    width: 46px;
+    height: 28px;
+    border: 9px solid #ffd166;
+    border-radius: 50% 50% 50% 0;
+    left: 18px;
+    top: -5px;
+    transform: rotate(45deg);
+}
+
+.click-text {
+    animation: heartbeat 1.5s infinite;
+}
+
+/* Gift opening animation */
+.gift.opened .gift-lid {
+    transform: translateY(-75px) rotate(-20deg);
+}
+
+.gift.opened .gift-bow {
+    transform: translateY(-75px) rotate(-35deg);
+}
+
+.gift.opened {
+    animation: gift-pop 0.6s ease;
+}
+
+@keyframes gift-pop {
+    50% {
+        transform: scale(1.15);
+    }
+}
+
+@keyframes heartbeat {
+    50% {
+        transform: scale(1.04);
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.6rem;
+    }
+
+    .gift-container p {
+        font-size: 1rem;
+    }
+}

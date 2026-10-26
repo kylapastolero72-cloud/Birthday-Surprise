@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gift❤️</title>
+    <link rel="stylesheet" href="1st-style.css">
+</head>
+<body>
+
+    <div class="gift-container">
+        <h1>This Gift is for Kyla Pastolero only.</h1>
+
+        <button class="gift-button" onclick="openGift()"
+                aria-label="Open your birthday gift">
+            <div class="gift">
+                <div class="gift-lid"></div>
+                <div class="gift-bow"></div>
+                <div class="gift-box">
+                    <div class="gift-ribbon"></div>
+                </div>
+            </div>
+        </button>
+
+        <p class="click-text" id="message">
+            Click your gift to open it! 🎁
+        </p>
+    </div>
+
+    <script>
+        function openGift() {
+            const gift = document.querySelector(".gift");
+            const message = document.getElementById("message");
+
+            gift.classList.add("opened");
+            message.textContent = "Your surprise is waiting, my love! ❤️";
+
+            setTimeout(() => {
+                window.location.href = "2nd-part.html";
+            }, 1200);
+        }
+    </script>
+
+</body>
+</html>
